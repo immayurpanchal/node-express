@@ -2,7 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
-const port = process.env.PORT|| 3000 ;
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -47,6 +47,12 @@ app.get('/about', (req, res) => {
 
 app.get('/bad', (req, res) => {
     res.send('Unable to handle the request');
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        projectTitle: 'Projects'
+    });
 });
 
 app.listen(port, () => {
